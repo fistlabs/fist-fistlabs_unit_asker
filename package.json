@@ -1,0 +1,47 @@
+{
+    "author": "Golyshev Dmitrii <golyshev.dmitry@yandex.ru>",
+    "bugs": {
+        "url": "https://github.com/fistlabs/fist-fistlabs_unit_asker/issues"
+    },
+    "contributors": [
+        "Golyshev Dmitrii <golyshev.dmitry@yandex.ru>"
+    ],
+    "dependencies": {
+        "asker": "0.6.0",
+        "vow-asker": "0.8.0",
+        "vow": "0.4.7",
+        "fast-url-parser": "1.0.6-0"
+    },
+    "description": "Fist plugin providing asker unit",
+    "devDependencies": {
+        "vow-fs": "0.3.4",
+        "loggin": "2.1.0",
+        "finger": "",
+        "lodash-node": "2.4.1",
+        "glob": "4.3.2",
+        "gulp": "3.8.10",
+        "gulp-mocha": "2.0.0",
+        "gulp-istanbul": "0.5.0",
+        "eslint": "0.10.2",
+        "gulp-util": "3.0.1",
+        "through2": "0.6.3",
+        "gulp-jscs": "1.3.1",
+        "fist": "~3",
+        "fist-fistlabs_unit_serial": "0.0.x"
+    },
+    "peerDependencies": {
+        "fist": "~3",
+        "fist-fistlabs_unit_serial": "0.0.x"
+    },
+    "license": "MIT",
+    "main": "_fistlabs_unit_asker",
+    "name": "fist-fistlabs_unit_asker",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/fistlabs/fist-fistlabs_unit_asker.git"
+    },
+    "engines": {
+        "node": ">= 0.10.0"
+    },
+    "version": "0.0.1"
+}
