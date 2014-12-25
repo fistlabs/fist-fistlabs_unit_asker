@@ -31,7 +31,7 @@ app.unit({
         };
     },
     resolve: function (track, context) {
-        var newsList = context.prev;
+        var newsList = this.__base(track, context);
         return newsList.filter(function (item) {
             return item.hidden !== true;
         });
