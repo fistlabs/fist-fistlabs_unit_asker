@@ -61,7 +61,7 @@ describe('fist_plugins/units/_fistlabs_unit_asker', function () {
         agent.unit({
             base: '_fistlabs_unit_asker',
             name: 'docs',
-            options: function (track, context) {
+            options: function (t, context) {
                 return {
                     timeout: 10000,
                     port: 12345,
@@ -93,7 +93,7 @@ describe('fist_plugins/units/_fistlabs_unit_asker', function () {
         agent.unit({
             base: '_fistlabs_unit_asker',
             name: 'upload',
-            options: function (track, context) {
+            options: function (t, context) {
                 return {
                     timeout: 10000,
                     port: 12345,
