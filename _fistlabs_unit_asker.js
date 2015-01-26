@@ -4,6 +4,7 @@ var bodyEncoders = require('asker').bodyEncoders;
 var hasProperty = Object.prototype.hasOwnProperty;
 var vowAsker = require('vow-asker');
 var url = require('fast-url-parser');
+var _ = require('lodash-node');
 
 module.exports = function (app) {
     app.install('fist-fistlabs_unit_serial');
@@ -75,6 +76,16 @@ module.exports = function (app) {
 
             if (path && typeof path.build === 'function') {
                 opts.path = path.build(opts.vars);
+            }
+
+            if (opts.path && opts.query) {
+                //  fix asker bug in 0.11.15
+                path = url.parse(opts.path, true);
+                opts.path = url.format({
+                    pathname: path.pathname,
+                    query: _.extend({}, path.query, opts.query)
+                });
+                delete opts.query;
             }
 
             return opts;
