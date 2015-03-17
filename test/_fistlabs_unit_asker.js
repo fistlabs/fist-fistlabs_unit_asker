@@ -13,7 +13,19 @@ var logger = require('loggin');
 function getAgent(params) {
     var agent = new Agent(params);
     agent.logger.conf({
-        logLevel: 'INTERNAL'
+        logLevel: 'INTERNAL',
+        enabled: ['sip'],
+        handlers: {
+            sip: {
+                layout: {
+                    record: {
+                        create: function () {}
+                    },
+                    format: function () {}
+                },
+                handle: function () {}
+            }
+        }
     });
     agent.install(require.resolve('../_fistlabs_unit_asker'));
     return agent;

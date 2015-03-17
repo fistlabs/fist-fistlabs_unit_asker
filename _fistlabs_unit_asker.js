@@ -107,15 +107,21 @@ module.exports = function (app) {
             track.logger.info('Outgoing %s %s%s%s', function () {
                 return opts.method || 'GET';
             }, function () {
-                if (!opts.pathname) {
-                    opts.pathname = url.parse(opts.path).pathname;
+                var parsedPath = url.parse(opts.path, true);
+                var parsedHost;
+
+                // in http options hostname preferred over host
+                if (!opts.hostname) {
+                    parsedHost = url.parse('//' + (opts.host || 'localhost'), true, true);
                 }
 
-                if (!opts.protocol) {
-                    opts.protocol = 'http:';
-                }
-
-                return url.format(opts);
+                return url.format({
+                    protocol: opts.protocol || 'http:',
+                    hostname: parsedHost ? parsedHost.hostname : opts.hostname,
+                    port: parsedHost ? parsedHost.port : opts.port,
+                    pathname: parsedPath.pathname,
+                    query: parsedPath.query
+                });
             }, function () {
                 var header = '';
                 var name;
